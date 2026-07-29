@@ -76,6 +76,12 @@ The application is deployed using Streamlit Cloud and supports natural language 
 
 ---
 
+### Data Pipeline Entry Point
+
+`main.py` is the primary entry point for the data pipeline, orchestrating the discovery, enrichment, validation, and production dataset generation workflow.
+
+---
+
 # Dataset
 
 The retrieval system uses the following dataset:
