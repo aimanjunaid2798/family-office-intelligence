@@ -154,7 +154,7 @@ Embeddings
 
 **Streamlit Application**
 
-[https://familyofficeintelligence.streamlit.app/]
+[https://familyofficeintelligence.streamlit.app/](https://familyofficeintelligence.streamlit.app/)
 
 ---
 
