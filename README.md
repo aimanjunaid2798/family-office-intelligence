@@ -154,7 +154,7 @@ Embeddings
 
 **Streamlit Application**
 
-(Add deployed Streamlit URL)
+[https://familyofficeintelligence.streamlit.app/]
 
 ---
 
