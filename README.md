@@ -162,8 +162,6 @@ Embeddings
 
 [https://github.com/aimanjunaid2798/family-office-intelligence/](https://github.com/aimanjunaid2798/family-office-intelligence/)
 
----
-
 --------------------------
 Development Note: Engineering Focus & Architecture Trade-offs   
 During this assessment, I intentionally prioritised building a reliable data pipeline over investing heavily in frontend complexity. My view was that the value of a Family Office Intelligence platform depends first on the quality, validation, and trustworthiness of its underlying data. A polished interface cannot compensate for inaccurate or weak intelligence.
