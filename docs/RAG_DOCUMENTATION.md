@@ -185,6 +185,16 @@ Current limitations include:
 
 ---
 
+## Production Dataset
+
+The validation pipeline processes candidate records through multiple validation stages. During this process, records may be marked as **Accepted**, **Review**, or **Rejected** for audit and quality assurance purposes.
+
+Only records that satisfy the project's inclusion criteria are indexed into the FAISS vector database and exposed through the deployed RAG application.
+
+Records marked for manual review or rejection are retained as part of the validation workflow but are not included in the customer-facing retrieval index.
+
+---
+
 # Future Improvements
 
 Potential future enhancements include:
