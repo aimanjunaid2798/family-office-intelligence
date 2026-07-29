@@ -167,7 +167,7 @@ These limitations are reflected in the validation outcome instead of being hidde
 
 # Conclusion
 
-The validation stage acts as the quality control layer of the pipeline.
+The validation stage acts as the quality control layer of the pipeline. It is important to distinguish between the validation workflow and the production retrieval dataset. While the validation pipeline records Accepted, Review, and Rejected outcomes for auditing purposes, only validated production records are indexed into the FAISS vector store and made available through the deployed application.
 
 Rather than treating discovery as sufficient evidence, each candidate record is independently reviewed before inclusion.
 
