@@ -189,7 +189,7 @@ Current limitations include:
 
 The validation pipeline processes candidate records through multiple validation stages. During this process, records may be marked as **Accepted**, **Review**, or **Rejected** for audit and quality assurance purposes.
 
-Which means although the validation workflow tracks Accepted, Review, and Rejected outcomes for auditing purposes, only the validated Family Office records are indexed into the FAISS vector database. The deployed RAG application retrieves information exclusively from this validated production index. Only records that satisfy the project's inclusion criteria are indexed into the FAISS vector database and exposed through the deployed RAG application.
+Although the validation workflow tracks Accepted, Review, and Rejected outcomes for auditing purposes, only the validated Family Office records are indexed into the FAISS vector database. The deployed RAG application retrieves information exclusively from this validated production index. Only records that satisfy the project's inclusion criteria are indexed into the FAISS vector database and exposed through the deployed RAG application.
 
 Records marked for manual review or rejection are retained as part of the validation workflow but are not included in the customer-facing retrieval index.
 
