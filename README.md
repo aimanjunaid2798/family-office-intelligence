@@ -76,31 +76,6 @@ The application is deployed using Streamlit Cloud and supports natural language 
 
 ---
 
-# Repository Structure
-
-```
-family-office-intelligence/
-
-├── app/
-│   ├── rag/
-│   ├── frontend/
-│   └── utils/
-│
-├── datasets/
-│   └── validated/
-│       └── final_clean_evaluation_v2.csv
-│
-├── vector_store/
-│
-├── streamlit_app.py
-│
-├── requirements.txt
-│
-└── README.md
-```
-
----
-
 # Dataset
 
 The retrieval system uses the following dataset:
