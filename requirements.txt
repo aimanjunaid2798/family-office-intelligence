@@ -1,0 +1,68 @@
+# -----------------------------
+# Core
+# -----------------------------
+pandas>=2.2.2
+numpy>=1.26.4
+python-dotenv>=1.0.1
+requests>=2.32.4
+beautifulsoup4>=4.13.4
+lxml>=6.0.0
+tqdm>=4.67.1
+rich>=14.1.0
+torch>=2.2.0
+torchvision>=0.17.0
+
+# -----------------------------
+# LangChain
+# -----------------------------
+langchain>=0.3.27
+langchain-core>=0.3.72
+langchain-community>=0.3.27
+langchain-text-splitters>=0.3.9
+langchain-chroma>=0.2.5
+langchain-huggingface>=0.3.1
+langchain-openai>=0.3.28
+langchain-groq>=0.3.7
+langchain-ollama>=0.3.6
+
+# -----------------------------
+# Vector Database
+# -----------------------------
+chromadb>=1.0.15
+faiss-cpu>=1.8.0.post1
+
+# -----------------------------
+# Embeddings
+# -----------------------------
+sentence-transformers>=5.0.0
+transformers>=4.53.0
+torch>=2.7.0
+huggingface-hub>=0.34.3
+
+# -----------------------------
+# LLM Providers
+# -----------------------------
+groq>=0.30.0
+openai>=1.99.0
+ollama>=0.5.1
+
+# -----------------------------
+# Search / Crawling
+# -----------------------------
+tavily-python>=0.7.11
+firecrawl-py>=2.10.0
+
+# -----------------------------
+# API
+# -----------------------------
+fastapi>=0.116.1
+uvicorn[standard]>=0.35.0
+python-multipart>=0.0.20
+pydantic>=2.11.7
+
+# -----------------------------
+# Optional Utilities
+# -----------------------------
+rapidfuzz>=3.13.0
+validators>=0.35.0
+streamlit>=1.35.0
