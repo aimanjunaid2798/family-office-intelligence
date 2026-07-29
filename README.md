@@ -1,6 +1,19 @@
-# Family Office Intelligence & Micro-RAG Pipeline
+# 🏢 Family Office Intelligence & Micro-RAG Pipeline
 
-A production-grade, end-to-end AI system that discovers, validates, structures, and queries verified Single-Family Office (SFO) intelligence. Developed as part of the PolarityIQ / Falcon Scaling Technical Assessment (Stage 1).
+> **Production-grade, end-to-end AI system designed to discover, rigorously validate, structure, and query verified Single-Family Office (SFO) intelligence for elite fund managers and capital allocators.**
+
+---
+
+### 🔍 The Core Challenge
+Single-Family Offices manage trillions in private wealth for ultra-high-net-worth individuals (UHNWIs) but notoriously operate behind a wall of opacity—making traditional outbound fundraising highly inefficient. Generic web scraping yields massive noise, mixing wealth advisors and multi-family offices with true SFOs, while frequently hallucinating contact data. 
+
+### 💡 The Solution
+This system bridges the intelligence gap by combining a **multi-tier deterministic filtering pipeline**, **grounded entity enrichment**, **semantic vector retrieval (`BAAI/bge-small-en-v1.5`)**, and **ultra-low-latency Groq LLM inference**. It guarantees zero-hallucination outputs by strictly anchoring all generated responses to verified production datasets (`final_clean_evaluation_v2.csv`).
+
+### ⚙️ Key Architectural Highlights
+* **Zero-Hallucination Grounding:** RAG architecture strictly restricts the model to retrieve context from explicitly verified SFO profiles, flagging unverified cells as honest blanks rather than guessing.
+* **Dual-Rule Validation Standard:** Every record undergoes rigorous validation checking—proving both firm classification (true SFO vs MFO) and cell-level provenance (direct decision-maker contact, verified mandates, and dated signals).
+* **Production-Ready Stack:** Built with Python, FAISS/ChromaDB vector indexing, FastAPI backend components, and deployed live via Streamlit Cloud for instantaneous client-facing queries.
 
 ---
 
