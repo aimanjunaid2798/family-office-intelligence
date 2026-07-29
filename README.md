@@ -164,6 +164,19 @@ Embeddings
 
 ---
 
+--------------------------
+Development Note: Engineering Focus & Architecture Trade-offs   
+During this assessment, I intentionally prioritised building a reliable data pipeline over investing heavily in frontend complexity. My view was that the value of a Family Office Intelligence platform depends first on the quality, validation, and trustworthiness of its underlying data. A polished interface cannot compensate for inaccurate or weak intelligence.
+
+Most of the engineering effort was therefore focused on discovery, enrichment, validation, and retrieval. The pipeline was designed to reduce false positives, validate Family Office records before inclusion, and support a grounded Micro-RAG workflow using the validated dataset as the primary source of truth. This work required considerably more effort than the presentation layer because the quality of every downstream answer depends on the quality of the underlying dataset.
+
+For the customer-facing component, I deployed a lightweight Streamlit application that enables users to query the dataset using natural language and receive responses grounded in the validated knowledge base. The interface was intentionally kept simple so that development effort could be concentrated on the reliability of the underlying system rather than advanced UI features.
+
+One architectural decision worth noting is that the validation workflow and the production retrieval index serve different purposes. The validation pipeline retains Accepted, Review, and Rejected outcomes to provide traceability and an audit trail throughout the data quality process. However, only the approved Family Office records are indexed into the FAISS vector database and exposed through the deployed RAG application, ensuring that end users retrieve information exclusively from the validated production dataset.
+
+Given additional time, I would refactor the backend into a more modular package structure, introduce automated testing and CI/CD, expand evaluation and monitoring for retrieval quality, and evolve the Streamlit interface into a richer analytical experience with advanced filtering, saved searches, and user-specific workflows.
+--------------------------
+
 # License
 
 This repository was developed as part of the PolarityIQ Differentiator Assessment.
