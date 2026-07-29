@@ -76,9 +76,10 @@ The application is deployed using Streamlit Cloud and supports natural language 
 
 ---
 
-### Data Pipeline Entry Point
+# Core Scripts & Architecture
 
-`main.py` is the primary entry point for the data pipeline, orchestrating the discovery, enrichment, validation, and production dataset generation workflow.
+* **`main.py` (Data Pipeline Entry Point):** The primary entry point for the data pipeline, orchestrating the discovery, enrichment, validation, and production dataset generation workflow. It programmatically manages the ingestion of raw entities down to the finalized `final_clean_evaluation_v2.csv`.
+* **`streamlit_app.py` (Application Layer):** The customer-facing interface that initializes the local FAISS vector store, embeds incoming queries via `BAAI/bge-small-en-v1.5`, and connects with Groq’s `llama-3.3-70b-versatile` for grounded response generation.
 
 ---
 
