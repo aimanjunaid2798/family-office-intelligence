@@ -5,7 +5,7 @@
 ---
 
 ### 🔍 The Core Challenge
-Single-Family Offices manage trillions in private wealth for ultra-high-net-worth individuals (UHNWIs) but notoriously operate behind a wall of opacity—making traditional outbound fundraising highly inefficient. Generic web scraping yields massive noise, mixing wealth advisors and multi-family offices with true SFOs, while frequently hallucinating contact data. 
+Single-Family Offices manage trillions in private wealth for ultra-high-net-worth individuals (UHNWIs) but notoriously operate behind a wall of opacity making traditional outbound fundraising highly inefficient. Generic web scraping yields massive noise, mixing wealth advisors and multi-family offices with true SFOs, while frequently hallucinating contact data. 
 
 ### 💡 The Solution
 This system bridges the intelligence gap by combining a **multi-tier deterministic filtering pipeline**, **grounded entity enrichment**, **semantic vector retrieval (`BAAI/bge-small-en-v1.5`)**, and **ultra-low-latency Groq LLM inference**. It guarantees zero-hallucination outputs by strictly anchoring all generated responses to verified production datasets (`final_clean_evaluation_v2.csv`).
