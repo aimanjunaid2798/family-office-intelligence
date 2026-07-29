@@ -160,7 +160,7 @@ Embeddings
 
 # GitHub Repository
 
-(Add GitHub Repository URL)
+[https://github.com/aimanjunaid2798/family-office-intelligence/](https://github.com/aimanjunaid2798/family-office-intelligence/)
 
 ---
 
