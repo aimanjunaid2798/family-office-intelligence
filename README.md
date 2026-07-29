@@ -1,69 +1,196 @@
-# 🏢 Family Office Intelligence & Micro-RAG Pipeline
+# Family Office Intelligence & Micro-RAG
 
-> **Production-grade, end-to-end AI system designed to discover, rigorously validate, structure, and query verified Single-Family Office (SFO) intelligence for elite fund managers and capital allocators.**
+## Overview
 
----
+Family Office Intelligence is an end-to-end AI system designed to discover, validate, structure, and query intelligence on Family Offices through a Retrieval-Augmented Generation (RAG) pipeline.
 
-### 🔍 The Core Challenge
-Single-Family Offices manage trillions in private wealth for ultra-high-net-worth individuals (UHNWIs) but notoriously operate behind a wall of opacity making traditional outbound fundraising highly inefficient. Generic web scraping yields massive noise, mixing wealth advisors and multi-family offices with true SFOs, while frequently hallucinating contact data. 
+The primary objective of this project was to build a reliable dataset of validated Family Office records and expose that dataset through a natural language interface. Rather than relying on the language model's internal knowledge, the system retrieves relevant information from a curated dataset before generating a response.
 
-### 💡 The Solution
-This system bridges the intelligence gap by combining a **multi-tier deterministic filtering pipeline**, **grounded entity enrichment**, **semantic vector retrieval (`BAAI/bge-small-en-v1.5`)**, and **ultra-low-latency Groq LLM inference**. It guarantees zero-hallucination outputs by strictly anchoring all generated responses to verified production datasets (`final_clean_evaluation_v2.csv`).
+The final dataset contains validated Family Office records stored in:
 
-### ⚙️ Key Architectural Highlights
-* **Zero-Hallucination Grounding:** RAG architecture strictly restricts the model to retrieve context from explicitly verified SFO profiles, flagging unverified cells as honest blanks rather than guessing.
-* **Dual-Rule Validation Standard:** Every record undergoes rigorous validation checking—proving both firm classification (true SFO vs MFO) and cell-level provenance (direct decision-maker contact, verified mandates, and dated signals).
-* **Production-Ready Stack:** Built with Python, FAISS/ChromaDB vector indexing, FastAPI backend components, and deployed live via Streamlit Cloud for instantaneous client-facing queries.
+```
+datasets/validated/final_clean_evaluation_v2.csv
+```
 
----
-
-## 🚀 Live Demonstration
-- **Live Streamlit App:** [https://familyofficeintelligence.streamlit.app](https://familyofficeintelligence.streamlit.app/)
-- **GitHub Repository:** [https://github.com/aimanjunaid2798/family-office-intelligence](https://github.com/aimanjunaid2798/family-office-intelligence)
+The application is deployed using Streamlit Cloud and supports natural language querying through a lightweight Micro-RAG architecture.
 
 ---
 
-## 📊 Overview & Architecture
-Single-Family Offices manage private wealth for ultra-high-net-worth individuals and notoriously lack public digital footprints. This system bridges the intelligence gap by combining automated discovery, rigorous multi-tier data validation, semantic chunking, and a Retrieval-Augmented Generation (RAG) engine designed for high-intent fund managers and investors.
+# Key Features
 
-### Core Pipeline Components:
-1. **Discovery & Sourcing Engine:** Targeted ingestion pipeline designed to isolate true Single-Family Offices (SFOs) from generic multi-family offices (MFOs) and wealth advisory firms.
-2. **Enrichment & Verification Layer:** Extracts high-value cells including asset allocation mandates, AUM, decision-maker (principal) details, direct professional contacts, and dated recent activities. Every cell carries explicit verification lineage.
-3. **Micro-RAG & Retrieval Core:** Powered by local vector embeddings and advanced semantic search to query unstructured and structured FO profiles with strict hallucination controls.
-4. **Interactive Presentation Layer:** Built with Streamlit, offering clean query interfaces, entity inspection, and real-time confidence metrics.
-
----
-
-## 🛠️ Tech Stack & Architecture Choices
-
-| Component | Technology Selected | Rationale |
-| :--- | :--- | :--- |
-| **Language & Environment** | Python 3.10+ | Industry standard for ML/AI engineering workflows. |
-| **Data Processing** | Pandas / NumPy | High-performance tabular cleaning and validation checks. |
-| **Embeddings & Vectorization** | `BAAI/bge-small-en-v1.5` | Exceptional retrieval accuracy for semantic search relative to model size. |
-| **LLM & Inference** | Groq API (`llama-3.3-70b-versatile`) | Ultra-low latency inference with strong reasoning capabilities for financial data. |
-| **Vector Store / Retrieval** | ChromaDB / FAISS (Local Vector Index) | Lightweight, reliable vector storage optimized for Micro-RAG deployment. |
-| **Web UI Framework** | Streamlit Cloud | Clean, responsive, and robust deployment interface for client-facing demos. |
+- Family Office discovery and validation pipeline
+- Structured dataset generation
+- Local semantic search using FAISS
+- Retrieval-Augmented Generation (Micro-RAG)
+- Natural language search interface
+- Grounded responses generated using retrieved evidence
+- Streamlit Cloud deployment
+- Modular Python-based architecture
 
 ---
 
-## 📁 Dataset & Schema Structure
-The final dataset (`final_clean_evaluation_v2.csv`) contains **55 rigorously validated production records** adhering strictly to the dual-rule proof standard:
-- **Rule 1 (Cells):** Every data point carries provenance and verification basis; unverified fields are explicitly marked as honest blanks.
-- **Rule 2 (Firms):** Affirmative evidence required to confirm single-family office classification prior to dataset inclusion.
+# System Architecture
 
-### Key Fields Included:
-- Entity Identity & Classification (SFO vs MFO)
-- Investment Theses, Focus Sectors, and Asset Class Mandates
-- Principal / Decision-Maker Information (Name, Title, Verified LinkedIn, Direct Work Contact)
-- Recent Activity & Dated Signals (Co-investments, key hires, capital commitments)
-- Verification Basis & Confidence Scoring
+```
+                User
+                  │
+                  ▼
+          Streamlit Interface
+                  │
+                  ▼
+          Query Processing
+                  │
+                  ▼
+          Embedding Model
+                  │
+                  ▼
+           FAISS Vector Store
+                  │
+                  ▼
+      Relevant Dataset Chunks
+                  │
+                  ▼
+         Groq LLM (Llama 3.3)
+                  │
+                  ▼
+        Grounded Natural Language Response
+```
 
 ---
 
-## 🚀 Local Installation & Running Guide
+# Technology Stack
 
-1. **Clone the Repository:**
-   ```bash
-   git clone [https://github.com/aimanjunaid2798/family-office-intelligence.git](https://github.com/aimanjunaid2798/family-office-intelligence.git)
-   cd family-office-intelligence
+| Category | Technology |
+|----------|------------|
+| Language | Python 3.10+ |
+| Data Processing | Pandas, NumPy |
+| Embeddings | Sentence Transformers |
+| Embedding Model | BAAI/bge-small-en-v1.5 |
+| Vector Store | FAISS |
+| LLM | Groq API |
+| Model | llama-3.3-70b-versatile |
+| Search | Tavily API |
+| Frontend | Streamlit |
+| Deployment | Streamlit Cloud |
+| Version Control | Git & GitHub |
+
+---
+
+# Repository Structure
+
+```
+family-office-intelligence/
+
+├── app/
+│   ├── rag/
+│   ├── frontend/
+│   └── utils/
+│
+├── datasets/
+│   └── validated/
+│       └── final_clean_evaluation_v2.csv
+│
+├── vector_store/
+│
+├── streamlit_app.py
+│
+├── requirements.txt
+│
+└── README.md
+```
+
+---
+
+# Dataset
+
+The retrieval system uses the following dataset:
+
+```
+datasets/validated/final_clean_evaluation_v2.csv
+```
+
+The dataset contains validated Family Office records enriched with structured information used during retrieval.
+
+---
+
+# Retrieval Pipeline
+
+The application follows a Retrieval-Augmented Generation (RAG) workflow.
+
+1. User submits a natural language query.
+2. The query is converted into an embedding.
+3. FAISS performs semantic similarity search.
+4. The most relevant records are retrieved.
+5. Retrieved context is supplied to the language model.
+6. Groq generates a grounded response based on the retrieved evidence.
+
+---
+
+# Deployment
+
+Frontend
+
+- Streamlit Cloud
+
+Inference
+
+- Groq API
+
+Semantic Search
+
+- FAISS
+
+Embeddings
+
+- BAAI/bge-small-en-v1.5
+
+---
+
+# Example Queries
+
+- Show Family Offices investing in healthcare.
+- Find Family Offices located in Singapore.
+- Which firms focus on venture capital?
+- Show offices with technology investment interests.
+- Which Family Offices are based in Europe?
+
+---
+
+# Current Limitations
+
+- The quality of responses depends on the information available within the validated dataset.
+- Private Family Offices often disclose limited public information.
+- Retrieval quality is influenced by the embedding model and available context.
+
+---
+
+# Future Improvements
+
+- Hybrid semantic and keyword retrieval
+- Automated dataset refresh pipeline
+- Advanced filtering options
+- User authentication
+- Retrieval evaluation dashboard
+- Continuous data validation workflows
+
+---
+
+# Live Demo
+
+**Streamlit Application**
+
+(Add deployed Streamlit URL)
+
+---
+
+# GitHub Repository
+
+(Add GitHub Repository URL)
+
+---
+
+# License
+
+This repository was developed as part of the PolarityIQ Differentiator Assessment.
+
+All work, code, datasets, and documentation remain the intellectual property of the author.
