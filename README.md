@@ -5,7 +5,7 @@ A production-grade, end-to-end AI system that discovers, validates, structures, 
 ---
 
 ## 🚀 Live Demonstration
-- **Live Streamlit App:** [https://familyofficeintelligence.streamlit.app] (https://familyofficeintelligence.streamlit.app/)
+- **Live Streamlit App:** [https://familyofficeintelligence.streamlit.app](https://familyofficeintelligence.streamlit.app/)
 - **GitHub Repository:** [https://github.com/aimanjunaid2798/family-office-intelligence](https://github.com/aimanjunaid2798/family-office-intelligence)
 
 ---
